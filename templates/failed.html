@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deployment Denied - Access Restricted</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body {
+            background: linear-gradient(135deg, #2b0b1a, #411c2a, #1c2541);
+            min-height: 100vh; display: flex; justify-content: center; align-items: center; position: relative; overflow: hidden;
+        }
+        body::before {
+            content: ""; position: absolute; width: 100%; height: 100%;
+            background-image: radial-gradient(rgba(255, 0, 127, 0.15) 1px, transparent 0); background-size: 24px 24px;
+        }
+        .emoji-rain { position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; z-index: 1; }
+        .falling-emoji { position: absolute; font-size: 2.5rem; bottom: -60px; animation: rainFall 6s infinite linear; opacity: 0.3; }
+        .error-container {
+            background: rgba(43, 11, 26, 0.85); backdrop-filter: blur(20px); border: 2px solid rgba(255, 0, 127, 0.4);
+            padding: 45px; border-radius: 25px; width: 450px; box-shadow: 0 20px 50px rgba(255, 0, 127, 0.3); z-index: 10; text-align: center;
+            animation: shakeError 0.6s ease-in-out;
+        }
+        .error-icon { font-size: 5rem; animation: spinTears 3s infinite linear; display: inline-block; margin-bottom: 15px; }
+        h2 { color: #ffffff; font-size: 2rem; letter-spacing: 1px; text-shadow: 0 0 15px rgba(255, 0, 127, 0.6); margin-bottom: 5px; }
+        .error-subtitle { color: #ff007f; font-size: 0.9rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+        .error-description { color: #dcdcdc; font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px; background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 12px; border-left: 4px solid #ff007f; }
+        .btn { display: block; width: 100%; padding: 14px; color: white; font-size: 1rem; font-weight: bold; text-decoration: none; border-radius: 30px; transition: all 0.3s ease; margin-bottom: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); text-align: center; }
+        .btn-retry { background: linear-gradient(45deg, #ff007f, #ff5f6d); }
+        .btn-retry:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(255, 0, 127, 0.5); }
+        @keyframes spinTears { 0%, 100% { transform: rotate(0deg) scale(1); } 50% { transform: rotate(10deg) scale(1.1); } }
+        @keyframes shakeError { 0%, 100% { transform: translateX(0); } 20%, 60% { transform: translateX(-10px); } 40%, 80% { transform: translateX(10px); } }
+        @keyframes rainFall { 0% { transform: translateY(0) rotate(0deg); opacity: 0; } 10% { opacity: 0.4; } 90% { opacity: 0.4; } 100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; } }
+    </style>
+</head>
+<body>
+    <div class="emoji-rain">
+        <div class="falling-emoji" style="left: 10%; animation-duration: 5s;">😭</div>
+        <div class="falling-emoji" style="left: 30%; animation-duration: 7s; animation-delay: 2s;">⚠️</div>
+        <div class="falling-emoji" style="left: 55%; animation-duration: 4s; animation-delay: 1s;">❌</div>
+        <div class="falling-emoji" style="left: 75%; animation-duration: 8s; animation-delay: 3s;">🤦‍♂️</div>
+        <div class="falling-emoji" style="left: 90%; animation-duration: 6s;">💔</div>
+    </div>
+    <div class="error-container">
+        <div class="error-icon">😭❌</div>
+        <h2>LOGIN FAILED</h2>
+        <div class="error-subtitle">Container Build Rejected</div>
+        <div class="error-description">
+            Oh no! Your credentials didn't match our authorized developer signatures. Sir Ghulam Raza Mehdi demands absolute correctness!
+        </div>
+        <a href="/login" class="btn btn-retry">Try Authenticating Again 🔄</a>
+    </div>
+</body>
+</html>

@@ -24,7 +24,6 @@
             padding: 20px;
         }
 
-        /* Ambient University Grid Effect */
         body::before {
             content: "";
             position: absolute;
@@ -37,7 +36,6 @@
             z-index: 0;
         }
 
-        /* --- Animations Room --- */
         .floating-elements {
             position: absolute;
             width: 100%;
@@ -48,7 +46,6 @@
             pointer-events: none;
         }
 
-        /* Floating Colorful Balloons */
         .balloon {
             position: absolute;
             bottom: -120px;
@@ -66,7 +63,6 @@
             left: 0;
         }
 
-        /* Bubbles */
         .bubble {
             position: absolute;
             background: rgba(0, 255, 204, 0.1);
@@ -76,7 +72,6 @@
             bottom: -60px;
         }
 
-        /* --- Sir Ghulam Raza Mehdi Dynamic Monitor Box --- */
         .professor-monitor {
             position: absolute;
             top: 25px;
@@ -116,7 +111,6 @@
             font-weight: bold;
         }
 
-        /* --- Main Login Card --- */
         .login-container {
             background: rgba(11, 19, 43, 0.85);
             backdrop-filter: blur(20px);
@@ -129,7 +123,7 @@
             animation: cardDropIn 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-align: center;
             position: relative;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .uni-logo {
@@ -167,7 +161,6 @@
             border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
-        /* Input Custom Styling */
         .input-group {
             position: relative;
             margin-bottom: 22px;
@@ -236,13 +229,30 @@
             background: linear-gradient(45deg, #0072ff, #00ffcc);
         }
 
+        .reg-link-container {
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: #b3b3b3;
+        }
+
+        .reg-link-container a {
+            color: #00ffcc;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .reg-link-container a:hover {
+            text-shadow: 0 0 10px #00ffcc;
+            color: #ffffff;
+        }
+
         .footer-note {
             margin-top: 20px;
-            font-size: 0.75rem;
+            font-size: 0.73rem;
             color: #6c757d;
         }
 
-        /* --- Bouncing Team Squad Arena (Fixed Overflow Grid Layout) --- */
         .student-squad {
             display: flex;
             justify-content: center;
@@ -252,7 +262,7 @@
             max-width: 900px;
             z-index: 5;
             pointer-events: none;
-            margin-top: 10px;
+            margin-top: 5px;
         }
 
         .student-card {
@@ -282,7 +292,6 @@
             line-height: 1.4;
         }
 
-        /* Special Highlight Border for Project Leader */
         .leader-card .student-label {
             border-color: #ff007f !important;
             color: #ff007f !important;
@@ -293,7 +302,6 @@
         .student-2 .student-avatar { animation-delay: 0.4s; }
         .student-3 .student-avatar { animation-delay: 0.8s; }
 
-        /* --- Keyframe Definitions --- */
         @keyframes floatUpward {
             0% { transform: translateY(0) translateX(0) scale(0.6); opacity: 0; }
             10% { opacity: 0.8; }
@@ -327,9 +335,8 @@
             50% { transform: translateY(-12px) rotate(10deg); }
         }
 
-        /* Responsive scaling down for smaller vertical screens */
-        @media (max-height: 750px) {
-            .professor-monitor { position: relative; top: 0; right: 0; margin-bottom: 15px; }
+        @media (max-height: 780px) {
+            .professor-monitor { position: relative; top: 0; right: 0; margin-bottom: 10px; }
             body { overflow-y: auto; justify-content: flex-start; }
         }
     </style>
@@ -372,6 +379,10 @@
 
             <button type="submit">Deploy Container Build 🚀</button>
         </form>
+
+        <div class="reg-link-container">
+            New to the network? <a href="/register">Create Account Base Key 🔑</a>
+        </div>
 
         <p class="footer-note">Continuous Integration Node managed via Docker & Jenkins Platform</p>
     </div>
