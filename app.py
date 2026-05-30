@@ -1,37 +1,36 @@
-from flask import Flask, render_template, request, redirect
-from werkzeug.security import generate_password_hash, check_password_hash
+from flask import Flask, render_template, request, redirect, url_for
 
+# Initialize the Flask application instance
 app = Flask(__name__)
-users = {}
 
+# Your custom authorized credentials dictionary
+USER_DATABASE = {
+    "Syed Ali Haider": "SyedAli157"
+}
+
+# Route for the home page / login screen
 @app.route('/')
-def home():
-    return redirect('/login')
-
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = generate_password_hash(request.form['password'])
-        users[username] = password
-        return redirect('/login')
-    return render_template('register.html')
-
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-
-        if username in users and check_password_hash(users[username], password):
-            return redirect('/dashboard')
-        else:
-            return "Login Failed"
-
+@app.route('/login', methods=['GET'])
+def login_page():
     return render_template('login.html')
 
-@app.route('/dashboard')
-def dashboard():
-    return render_template('dashboard.html')
+# Route that processes the form submission credentials
+@app.route('/login', methods=['POST'])
+def handle_login():
+    username = request.form.get('username')
+    password = request.form.get('password')
+    
+    # Check if the username exists and password matches exactly
+    if username in USER_DATABASE and USER_DATABASE[username] == password:
+        return render_template('success.html')
+    else:
+        return render_template('failed.html')
 
-app.run(host='0.0.0.0', port=5000)
+# Simple placeholder for registration route
+@app.route('/register')
+def register():
+    return '<h2 style="font-family:sans-serif; text-align:center; margin-top:50px; color:#1c2541;">Registration system base key is currently being compiled by Syed Ali Haider! 👑</h2>'
+
+# Main runner config
+if __name__ == '__main__':
+    app.run(debug=True, port=5000)
